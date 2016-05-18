@@ -1,24 +1,18 @@
-player = {}
-player.x = 0
+require "player"
 
 function love.load()
-    x = 0
-    y = 0
+
+    love.graphics.getBackgroundColor(0,0,255)
+    groundlevel = 500
+    gravity = 600
+    -- Loading classes.
+    player.load()
 end
 
 function love.update(dt)
-    if love.keyboard.isDown("right") then
-        x = x + 1
-    elseif love.keyboard.isDown("left") then
-        x = x - 1
-    elseif love.keyboard.isDown("up") then
-        y = y - 1
-    elseif love.keyboard.isDown("down") then
-        y = y + 1
-    end
+    updateplayer(dt)
 end
 
 function love.draw()
-    love.graphics.rectangle("fill",x,y,100,100)
-    --x = x + 1
+    drawplayer()
 end
